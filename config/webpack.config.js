@@ -9,7 +9,7 @@ module.exports = {
     clean: true, // 每次构建清理dist文件夹
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"], // 支持的文件扩展名
+    extensions: [".tsx", ".ts", ".js", ".jsx"], // 支持的文件扩展名
     alias: {
       // 路径别名
       "@/*": path.resolve(__dirname, "../src/"),
