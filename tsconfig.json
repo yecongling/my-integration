@@ -8,7 +8,21 @@
     "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "baseUrl": "./", // 项目根目录
+    "paths": {
+      "@views/*": ["src/views/*"],
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@enums/*": ["src/enums/*"],
+      "@context/*": ["src/context/*"],
+      "@stores/*": ["src/stores/*"],
+      "@types/*": ["src/types/*"],
+      "@assets/*": ["src/assets/*"],
+      "@utils/*": ["src/utils/*"],
+      "@service/*": ["src/services/*"]
+    }
   },
   "include": ["src"],
   "exclude": ["node_modules"]

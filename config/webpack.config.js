@@ -12,7 +12,17 @@ module.exports = {
     extensions: [".tsx", ".ts", ".js", ".jsx"], // 支持的文件扩展名
     alias: {
       // 路径别名
-      "@/*": path.resolve(__dirname, "../src/"),
+      "@views": path.resolve(__dirname, "../src/views"),
+      "@components": path.resolve(__dirname, "../src/components"),
+      "@layouts": path.resolve(__dirname, "../src/layouts"),
+      "@hooks": path.resolve(__dirname, "../src/hooks"),
+      "@enums": path.resolve(__dirname, "../src/enums"),
+      "@context": path.resolve(__dirname, "../src/context"),
+      "@stores": path.resolve(__dirname, "../src/stores"),
+      "@types": path.resolve(__dirname, "../src/types"),
+      "@assets": path.resolve(__dirname, "../src/assets"),
+      "@utils": path.resolve(__dirname, "../src/utils"),
+      "@services": path.resolve(__dirname, "../src/services")
     },
   },
   devtool: "source-map",
@@ -25,7 +35,13 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i, // 处理 Sass 文件
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: ["style-loader", "css-loader", {
+          loader: "sass-loader", // 将Sass编译成css
+          options: {
+            // 使用additionalData 注入全局变量
+            additionalData: `@use "@assets/styles/variables.scss";`
+          }
+        }],
       },
       {
         test: /\.(js|jsx)$/, // 处理 JavaScript 和 JSX 文件
